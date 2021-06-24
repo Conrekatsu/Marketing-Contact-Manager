@@ -13,17 +13,12 @@
         
     </head>
     <body>
-    @if(!isset($csvFile))
     {!! Form::open(["route"=>"uploadCSV","method"=>"post","files"=>true,"id"=>"initial_upload"]) !!}
     <h3>Upload CSV file</h3>
     {!! Form::file("csv_file") !!}
     {!! Form::submit("Upload") !!}
     <hr>
     {!! Form::close() !!}
-    @endisset
 
-        @isset($csvFile)
-            @include('mapping')
-        @endisset
     </body>
 </html>
