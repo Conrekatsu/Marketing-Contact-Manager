@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::post("/uploadCSV","HomeController@uploadCSV")->name("uploadCSV");
+Route::post("/processImport","HomeController@processImport")->name("processImport");

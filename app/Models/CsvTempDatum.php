@@ -11,7 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class CsvTempDatum
- * 
+ *
  * @property int $id
  * @property string $csv_filename
  * @property bool $csv_header
@@ -23,7 +23,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class CsvTempDatum extends Eloquent
 {
-
+    protected $table = 'csv_temp_data';
+	protected $primaryKey = 'id';
 	protected $fillable = [
 		'csv_filename',
 		'csv_header',

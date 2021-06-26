@@ -229,4 +229,25 @@ return [
 
     ],
 
+
+    'marketing_fields' =>  [
+
+        // "phone"=>"Phone Number",
+        // "email"=>"Email",
+        "m_country"=>"Country",
+        "m_city"=>"Town/City",
+        "m_add1"=>"Address 1",
+        "m_add2"=>"Address 2",
+        "m_ctype"=>"Contact Type",
+        "m_csource"=>"Contact Source",
+        "m_subscription"=>"Subscription",
+        // "m_fullname"=>"Full Name",
+        "m_lname"=>"Last Name",
+        "m_fname"=>"First Name",
+        "m_mname"=>"Middle Name",
+        "m_company"=>"Company",
+        "m_desig"=>"Job/Designation",
+        "m_salutation"=>"Salutation"
+    ],
+
 ];
