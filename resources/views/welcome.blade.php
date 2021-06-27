@@ -20,5 +20,8 @@
     <hr>
     {!! Form::close() !!}
 
+    <a href="{{route('export')}}">Export Existing Records</a> |
+    <a href="{{route('view')}}">View Existing Records</a>
+
     </body>
 </html>

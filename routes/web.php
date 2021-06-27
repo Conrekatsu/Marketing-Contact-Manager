@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::post("/uploadCSV","HomeController@uploadCSV")->name("uploadCSV");
 Route::post("/processImport","HomeController@processImport")->name("processImport");
+Route::get("/export","HomeController@export")->name("export");
+Route::get("/view","HomeController@index")->name("view");
