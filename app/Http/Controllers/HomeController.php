@@ -194,14 +194,32 @@ class HomeController extends Controller
                 foreach ($r->phone as $phoneNumber) {
                     if ($phoneNumber == "__DefaultSelection")
                         continue;
+                        
 
-                    try {
-                        $user->phoneNumbers()->save(new MarketingContactNumber([
-                            'mno_number' => $row[$phoneNumber]
-                        ]));
-                    } catch (\Exception $e) {
-                        continue;
+                    if(strpos($row[$phoneNumber],',') > 0){
+                        try {
+                            foreach(explode(',',$row[$phoneNumber]) as $num){
+                                if(trim($num) == '')
+                                    continue;
+
+                                $user->phoneNumbers()->save(new MarketingContactNumber([
+                                    'mno_number' => trim($num)
+                                ]));
+                            }
+                        } catch (\Exception $e) {
+                            continue;
+                        }
                     }
+                    else{
+                        try {
+                            $user->phoneNumbers()->save(new MarketingContactNumber([
+                                'mno_number' => trim($row[$phoneNumber])
+                            ]));
+                        } catch (\Exception $e) {
+                            continue;
+                        }
+                    }
+
                 }
             }
 
@@ -209,13 +227,31 @@ class HomeController extends Controller
                 foreach ($r->email as $email) {
                     if ($email == "__DefaultSelection")
                         continue;
-                    try {
-                        $user->emails()->save(new MarketingEmail([
-                            'mem_email' => $row[$email]
-                        ]));
-                    } catch (\Exception $e) {
-                        continue;
+
+                    if(strpos($row[$email],',')> 0){
+                        try {
+
+                            foreach(explode(',',$row[$email]) as $em){
+                                if(trim($em) == '')
+                                    continue;
+                                $user->emails()->save(new MarketingEmail([
+                                    'mem_email' => trim($em)
+                                ]));
+                            }
+                        } catch (\Exception $e) {
+                            continue;
+                        }
                     }
+                    else{
+                        try {
+                            $user->emails()->save(new MarketingEmail([
+                                'mem_email' => $row[$email]
+                            ]));
+                        } catch (\Exception $e) {
+                            continue;
+                        }
+                    }
+
                 }
             }
         }
